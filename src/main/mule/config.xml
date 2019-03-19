@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<http:listener-config name="temasek_munit_api-httpListenerConfig">
+        <http:listener-connection host="${http.host}" port="${http.port}" />
+    </http:listener-config>
+    <apikit:config name="temasek_munit_api-config" raml="temasek_munit_api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" >
+		<apikit:flow-mappings >
+			<apikit:flow-mapping resource="${http.resourcepath}" action="get" flow-ref="get:\cicdtest:temasek_munit_api-config" />
+		</apikit:flow-mappings>
+	</apikit:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="5eb172cc-802f-4e6c-ac0d-9defcb3de879" file="config-dev-properties.yaml" />
+	<api-gateway:autodiscovery apiId="15647623" doc:name="API Autodiscovery" doc:id="8c1d4e32-294b-4ed9-8674-1b589783adc8" flowRef="temasek_munit_api-main" />
+	 <configuration doc:name="Configuration" doc:id="4b0f218a-596a-4cfb-a071-7f84a76b9857" defaultErrorHandler-ref="temasekGlobalExceptionHandler" /> 
+	 <import doc:name="Import" doc:id="7c141595-11f5-42f7-8657-babf6146eb6b" file="global-exception-handling.xml" />
+	<import doc:name="Import_kafka_flow" doc:id="9c0632ff-00b2-4e25-9a80-eab19ca83882" file="temasek-integration-cle.xml" />
+</mule>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd ">
+    
+    <flow name="temasek_munit_api-main">
+        <http:listener config-ref="temasek_munit_api-httpListenerConfig" path="${http.basepath}">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="temasek_munit_api-config" />
+        <error-handler ref="ApiKitException" />
+    </flow>
+    <flow name="temasek_munit_api-console">
+        <http:listener config-ref="temasek_munit_api-httpListenerConfig" path="/console/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="temasek_munit_api-config" />
+    </flow>
+    <flow name="get:\cicdtest:temasek_munit_api-config">
+        <set-payload value="#[attributes.queryParams.url_key]" doc:name="Set query param 'url_key' to payload" />
+		<flow-ref name="secondaryFlow" doc:name="secondaryFlow" />
+		<choice doc:name="Choice">
+			<when expression="#[vars.flowValue == 'flowValue_1']">
+				<set-payload value="#['responsePayload_1']" doc:name="Set Response Payload" />
+			</when>
+			<when expression="#[vars.flowValue == 'flowValue_2']">
+				<set-payload value="#['responsePayload_2']" doc:name="Set Payload" doc:id="1998a940-ce24-4e8d-ba21-aa4d562c4471" />
+			</when>
+			<when expression="#[vars.flowValue == 'flowValue_3']">
+				<set-payload value="#['responsePayload_3']" doc:name="Set Payload" doc:id="b56b27a2-7e45-4465-9ad4-e93b2de0aff4" />
+			</when>
+			<otherwise>
+				<set-payload value="#[payload]" doc:name="Set Response Payload" />
+			</otherwise>
+		</choice>
+    </flow>
+    
+    <flow name="secondaryFlow">
+		<choice doc:name="Choice">
+			<when expression="payload == 'payload_1'">
+				<flow-ref name="firstSubFlow" doc:name="firstSubFlow" />	
+            </when>
+			<when expression="payload == 'payload_3'">
+				<flow-ref doc:name="Flow Reference" doc:id="9589689a-e505-4cc9-ad2d-3d6b45af77b9" name="thirdSubFlow"/>
+			</when>
+			<when expression="payload == 'payload_4'">
+				<flow-ref doc:name="Flow Reference" doc:id="3f6b99fd-c310-497f-8a04-155430e5c0c0" name="fourthSubFlow"/>
+			</when>
+			<otherwise>
+				<flow-ref name="secondSubFlow" doc:name="secondSubFlow" />
+			</otherwise>
+		</choice>
+	</flow>
+
+	<sub-flow name="firstSubFlow">
+		<set-variable variableName="flowValue" value="flowValue_1" doc:name="Set Variable" />
+	</sub-flow>
+	
+	<sub-flow name="secondSubFlow" doc:id="25053e47-a469-4102-adf6-8b16bb1f990f">
+		<set-variable variableName="flowValue" value="flowValue_2" doc:name="Set Variable" />
+	</sub-flow>
+	
+	<sub-flow name="thirdSubFlow" doc:id="e986545e-c074-4cb1-921e-d6e0461bbc31">
+		<set-variable variableName="flowValue" value="flowValue_3" doc:name="Set Variable" />
+	</sub-flow>
+	
+	<sub-flow name="fourthSubFlow" doc:id="9615c52e-bbdb-4bdf-9b32-933610a200f8">
+		<set-variable variableName="flowValue" value="flowValue_4" doc:name="Set Variable" />
+	</sub-flow>
+</mule>

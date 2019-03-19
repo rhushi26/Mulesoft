@@ -1,0 +1,58 @@
+#%RAML 1.0
+title: Temasek_Munit_API
+baseUri: https://mocksvc.mulesoft.com/temasek
+
+/cicdtest:
+ get:
+   responses:
+     200:
+       description: Success
+       body:
+         application/json:
+           example:
+             {
+               "message": "Success"
+             }
+
+     404:
+      description: Error - Resource not found
+      body:
+        application/json:
+         example:
+           {
+             "message": "Resource not found"
+           }
+
+     405:
+      description: Error - Method not allowed
+      body:
+        application/json:
+         example:
+           {
+             "message": "Method not allowed"
+           }
+
+     415:
+       description: Error - Unsupported media type
+       body: 
+          application/json: 
+            example: 
+              {
+                 "message": "Unsupported media type"
+              }           
+     406:
+       description: Error - Not acceptable
+       body: 
+          application/json: 
+            example: 
+              {
+                 "message": "Not acceptable"
+              }           
+     400:
+       description: Error - Bad request
+       body: 
+          application/json: 
+            example: 
+              {
+                 "message": "Bad request"
+              }
