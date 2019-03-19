@@ -138,10 +138,13 @@
         <dependency>
         	<groupId>org.temasek.support</groupId>
         	<artifactId>temasek-integration-cle</artifactId>
-        	<version>1.0.0</version></dependency><dependency>
+        	<version>1.0.0</version>
+        </dependency>
+        <dependency>
         	<groupId>com.mulesoft.connectors</groupId>
         	<artifactId>mule-kafka-connector</artifactId>
-        	<version>3.0.1</version><classifier>mule-plugin</classifier>
+        	<version>3.0.1</version>
+            <classifier>mule-plugin</classifier>
         	</dependency>
         <dependency>
         	<groupId>org.mule.modules</groupId>
