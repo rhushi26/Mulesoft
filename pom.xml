@@ -257,9 +257,6 @@
       <id>jfrogDeploy</id>
     </profile>
     </profiles>
-	  <activeProfiles>
-		<activeProfile>jfrogDeploy</activeProfile>
-	  </activeProfiles>
     <repositories>
         <!-- Repo to copy dependency from -->
         <repository>
