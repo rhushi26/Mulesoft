@@ -233,6 +233,7 @@
 			<id>snapshots</id>
 			<name>${jfrog.repo.host}-snapshots</name>
 			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+		</repository>	
         <repository>
             <id>anypoint-exchange</id>
             <name>Anypoint Exchange</name>
