@@ -83,8 +83,8 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.temasek</groupId>
-                                    <artifactId>temasek-api</artifactId>
+                                    <groupId>com.mycompany</groupId>
+                                    <artifactId>temasek-munit</artifactId>
                                     <version>${versionToDeploy}</version>
                                     <type>jar</type>
                                     <classifier>mule-application</classifier>
@@ -223,13 +223,16 @@
         </profile>
     </profiles>
     <repositories>
-        <!-- Repo to copy dependency from 
+        <!-- Repo to copy dependency from -->
         <repository>
             <id>central</id>
             <name>${jfrog.repo.host}-releases</name>
-            <url>${jfrog.repo.url}</url>
-        </repository>-->
-        <!--  <repository><id>snapshots</id><name>${jfrog.repo.host}-snapshots</name><url>http://localhost:8081/artifactory/libs-snapshot-local</url><url>${jfrog.repo.url}</url></repository> -->
+            <url>http://localhost:8081/artifactory/libs-release</url>
+        </repository>
+        <repository>
+			<id>snapshots</id>
+			<name>${jfrog.repo.host}-snapshots</name>
+			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
         <repository>
             <id>anypoint-exchange</id>
             <name>Anypoint Exchange</name>
