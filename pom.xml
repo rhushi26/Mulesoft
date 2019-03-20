@@ -256,11 +256,23 @@
     </pluginRepositories>
     <!-- JFrog repo to push to -->
     <distributionManagement>
-        <repository>
+       <!-- <repository>
             <id>central</id>
             <name>${jfrog.repo.host}-releases</name>
             <url>${jfrog.repo.url}</url>
-        </repository>
+        </repository> -->
+		<repository>
+			<id>central</id>
+			<name>PUNITP257998L-releases</name>
+			<url>http://localhost:8081/artifactory/libs-release</url>
+		</repository>
         <!-- <snapshotRepository><id>snapshots</id><name>${jfrog.repo.host}-snapshots</name><url>http://localhost:8081/artifactory/libs-snapshot-local</url><url>${jfrog.repo.url}</url></snapshotRepository> -->
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>PUNITP257998L-snapshots</name>
+			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
     </distributionManagement>
+
+	
 </project>
