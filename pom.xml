@@ -191,7 +191,7 @@
                      <cloudHubDeployment>
                         <uri>https://anypoint.mulesoft.com/</uri>
                         <muleVersion>${mule.version}</muleVersion>
-                        <server>${anypoint.server}</server>
+                        <server>${cloudhub}</server>
                         <artifact>target/${project.artifactId}-${versionToDeploy}-${project.packaging}.jar</artifact>
                         <applicationName>${project.name}-${env}</applicationName>
                         <environment>${anypoint.environment}</environment>
