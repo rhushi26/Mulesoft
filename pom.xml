@@ -166,12 +166,9 @@
                         <configuration>
                            <artifactItems>
                               <artifactItem>
-                                <!-- <groupId>com.mycompany</groupId>
+                                 <groupId>com.mycompany</groupId>
                                  <artifactId>temasek-munit</artifactId>
-                                 <version>${versionToDeploy}</version> -->
-								 <groupId>8b05d86a-d1a2-4738-b88b-ad67bfd10097</groupId>
-								 <artifactId>temasek-api</artifactId>
-								 <version>1.0.2</version>
+                                 <version>${versionToDeploy}</version>
                                  <type>jar</type>
                                  <classifier>mule-application</classifier>
                                  <overWrite>true</overWrite>
