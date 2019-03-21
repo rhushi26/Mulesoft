@@ -191,13 +191,14 @@
                      <cloudHubDeployment>
                         <uri>https://anypoint.mulesoft.com/</uri>
                         <muleVersion>${mule.version}</muleVersion>
-                        <server>${cloudhub}</server>
+                        <server>${anypoint.server}</server>
                         <artifact>target/${project.artifactId}-${versionToDeploy}-${project.packaging}.jar</artifact>
                         <applicationName>${project.name}-${env}</applicationName>
                         <environment>${anypoint.environment}</environment>
                         <!-- <region>us-east-2</region> -->
                         <properties>
-                           <env>${env}</env>
+                           <!--<env>${env}</env>-->
+						   <env>${anypoint.environment}</env>
                            <publishKafkaFlag>false</publishKafkaFlag>
                            <anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
                            <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
