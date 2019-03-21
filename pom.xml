@@ -69,7 +69,7 @@
                 <version>2.8.2</version>
             </plugin>
             <!-- Maven dependency copy plugin -->
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.1.1</version>
@@ -96,7 +96,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <!-- Mule Plugin -->
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
@@ -221,7 +221,7 @@
                 </plugins>
             </build>
         </profile>
-		<profile>
+		<!--<profile>
 			<repositories>
 				<repository>
 					<snapshots>
@@ -255,7 +255,7 @@
         </pluginRepository>
       </pluginRepositories>
       <id>jfrogDeploy</id>
-    </profile>
+    </profile>-->
     </profiles>
     <repositories>
         <!-- Repo to copy dependency from -->
@@ -263,12 +263,12 @@
             <id>central</id>
             <name>${jfrog.repo.host}-releases</name>
             <url>http://localhost:8081/artifactory/libs-release</url>
-        </repository>
+        </repository>-->
         <repository>
 			<id>snapshots</id>
 			<name>${jfrog.repo.host}-snapshots</name>
 			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
-		</repository>-->	
+		</repository>	
         <repository>
             <id>anypoint-exchange</id>
             <name>Anypoint Exchange</name>
