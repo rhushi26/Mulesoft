@@ -197,8 +197,7 @@
                         <environment>${anypoint.environment}</environment>
                         <!-- <region>us-east-2</region> -->
                         <properties>
-                           <!--<env>${env}</env>-->
-						   <env>${anypoint.environment}</env>
+                           <env>${env}</env>
                            <publishKafkaFlag>false</publishKafkaFlag>
                            <anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
                            <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
