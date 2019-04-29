@@ -65,7 +65,7 @@
 	</sub-flow>
 	
 	<sub-flow name="secondSubFlow" doc:id="25053e47-a469-4102-adf6-8b16bb1f990f">
-		<set-variable variableName="flowValue" value="flowValue_2" doc:name="Set Variable" />
+		<set-variable variableName="flowValue1" value="flowValue_2" doc:name="Set Variable" />
 	</sub-flow>
 	
 	<sub-flow name="thirdSubFlow" doc:id="e986545e-c074-4cb1-921e-d6e0461bbc31">
