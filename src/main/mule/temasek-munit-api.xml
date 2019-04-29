@@ -31,7 +31,7 @@
 			<when expression="#[vars.flowValue == 'flowValue_1']">
 				<set-payload value="#['responsePayload_1']" doc:name="Set Response Payload" />
 			</when>
-			<when expression="#[vars.flowValue == 'flowValue_2']">
+			<when expression="#[vars.flowValue == 'flowValue_21']">
 				<set-payload value="#['responsePayload_2']" doc:name="Set Payload" doc:id="1998a940-ce24-4e8d-ba21-aa4d562c4471" />
 			</when>
 			<when expression="#[vars.flowValue == 'flowValue_3']">
