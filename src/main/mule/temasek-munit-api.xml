@@ -25,7 +25,7 @@
         <apikit:console config-ref="temasek_munit_api-config" />
     </flow>
     <flow name="get:\cicdtest:temasek_munit_api-config">
-        <set-payload value="#[attributes.queryParams.url_key]" doc:name="Set query param 'url_key' to payload" />
+        <set-payload value="#[attributes.queryParams.url_key]  " doc:name="Set query param 'url_key' to payload" />
 		<flow-ref name="secondaryFlow" doc:name="secondaryFlow" />
 		<choice doc:name="Choice">
 			<when expression="#[vars.flowValue == 'flowValue_1']">
